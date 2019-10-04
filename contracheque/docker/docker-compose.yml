@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  contracheque:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: contracheque
+    ports:
+      - 8080:8080
+      - 5005:5005
+    networks:
+      - fk-network
+
+volumes:
+  fk-volume:
+
+networks:
+  fk-network:
+    driver: bridge
