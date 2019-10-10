@@ -11,10 +11,14 @@
 		<f:viewAction action="#{cadastrarFuncionariosBean.iniciar}" />
 	</f:metadata>
 
-	<ui:define name="titulo">Cadastro de lançamento</ui:define>
+	<ui:define name="titulo">Cadastro de funcionário</ui:define>
 
 	<ui:define name="corpo">
+
 		<h1>Cadastro de Funcionário</h1>
+
+		<p:button icon="ui-icon-arrowreturnthick-1-w" value="Voltar" outcome="/ListarFuncionarios">
+		</p:button>
 
 		<h:form id="frm">
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true" />

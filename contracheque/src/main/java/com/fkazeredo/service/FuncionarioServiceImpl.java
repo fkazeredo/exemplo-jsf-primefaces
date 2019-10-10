@@ -2,9 +2,9 @@ package com.fkazeredo.service;
 
 import com.fkazeredo.model.Funcionario;
 import com.fkazeredo.model.Funcionarios;
+import com.fkazeredo.persistence.Transactional;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import java.util.List;
 
 public class FuncionarioServiceImpl implements FuncionarioService {

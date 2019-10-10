@@ -5,12 +5,13 @@ import com.fkazeredo.service.FuncionarioService;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
 @Named
-@javax.faces.view.ViewScoped
+@ViewScoped
 public class CadastrarFuncionariosBean implements Serializable {
 
     private static final long serialVersionUID = -4576023475605029000L;
