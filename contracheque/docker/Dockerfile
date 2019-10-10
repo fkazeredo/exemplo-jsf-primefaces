@@ -1,6 +1,6 @@
 FROM tomcat:7.0.90-jre8
 VOLUME /tmp
-ADD ./target/poligonos.war /usr/local/tomcat/webapps/poligonos.war
+ADD ./target/contracheque.war /usr/local/tomcat/webapps/contracheque.war
 
 ENV JPDA_ADDRESS="5005"
 ENV JPDA_TRANSPORT="dt_socket"

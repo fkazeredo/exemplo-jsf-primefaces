@@ -2,19 +2,6 @@ version: '3'
 
 services:
 
-  contracheque-app:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile
-    container_name: contracheque
-    ports:
-      - 8080:8080
-      - 5005:5005
-    depends_on:
-      - contracheque-mysql
-    networks:
-      - fk-network
-
   contracheque-mysql:
     image: mysql:5.6
     environment:

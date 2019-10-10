@@ -1,32 +1,32 @@
 package com.fkazeredo.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Objects;
 
+@Entity
+@Table(name = "funcionario")
 public class Funcionario implements Serializable {
 
-    private static final long serialVersionUID = 1582411914473751764L;
+    private static final long serialVersionUID = -4028999321896804802L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nome;
-
     private String sobrenome;
-
     private String cargo;
-
-    private BigDecimal salarioBruto;
+    private BigDecimal salario;
 
     public Funcionario() {
     }
 
-    public Funcionario(Long id, String nome, String sobrenome, String cargo,  BigDecimal salarioBruto) {
+    public Funcionario(Long id, String nome, String sobrenome, String cargo, BigDecimal salario) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cargo = cargo;
-        this.salarioBruto = salarioBruto;
+        this.salario = salario;
     }
 
     public Long getId() {
@@ -61,25 +61,27 @@ public class Funcionario implements Serializable {
         this.cargo = cargo;
     }
 
-    public BigDecimal getSalarioBruto() {
-        return salarioBruto;
+    public BigDecimal getSalario() {
+        return salario;
     }
 
-    public void setSalarioBruto(BigDecimal salarioBruto) {
-        this.salarioBruto = salarioBruto;
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Funcionario that = (Funcionario) o;
-        return id.equals(that.id);
+
+        return getId().equals(that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return getId().hashCode();
     }
 
     @Override
@@ -89,7 +91,7 @@ public class Funcionario implements Serializable {
                 ", nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", cargo='" + cargo + '\'' +
-                ", salarioBruto=" + salarioBruto +
+                ", salario=" + salario +
                 '}';
     }
 }
