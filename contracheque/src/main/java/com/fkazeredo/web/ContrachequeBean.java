@@ -1,7 +1,7 @@
 package com.fkazeredo.web;
 
-import com.fkazeredo.model.Funcionario;
-import com.fkazeredo.service.FuncionarioService;
+import com.fkazeredo.model.Contracheque;
+import com.fkazeredo.service.ContrachequeService;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -13,16 +13,27 @@ import java.io.Serializable;
 public class ContrachequeBean implements Serializable {
 
     private static final long serialVersionUID = -4341815624449491032L;
-    @Inject
-    private FuncionarioService funcionarioService;
 
-    private Funcionario funcionario;
+    @Inject
+    private ContrachequeService contrachequeService;
+
+    private Contracheque contracheque;
+
+    private Long id;
 
     public void calcular(){
-        System.out.println("Calculando...");
+        contracheque = contrachequeService.obterContracheque(id);
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
+    public Contracheque getContracheque() {
+        return contracheque;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

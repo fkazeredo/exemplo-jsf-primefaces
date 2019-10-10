@@ -1,4 +1,4 @@
-package com.fkazeredo.persistence;
+package com.fkazeredo.infra.jpa;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import javax.persistence.EntityTransaction;
 
 @Interceptor
 @Transactional
-public class TransactionInterceptor implements Serializable {
+class TransactionInterceptor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -16,10 +16,8 @@
 		
 		<h1>Funcionários</h1>
 
-		<p:button icon="ui-icon-plus" value="Incluir" outcome="/CadastrarFuncionario">
-		</p:button>
-
-		<hr/>
+		<p:button icon="ui-icon-plus" value="Incluir" outcome="/CadastrarFuncionario"/>
+		<br/><br/>
 
 		<h:form id="frm">
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true" />
@@ -32,11 +30,17 @@
 				<p:column headerText="Sobrenome" sortBy="#{funcionario.sobrenome}">
 					<h:outputText value="#{funcionario.sobrenome}" />
 				</p:column>
-				<p:column headerText="Cargo" width="80">
+				<p:column headerText="Cargo">
 					<h:outputText value="#{funcionario.cargo}" />
 				</p:column>
+				<p:column headerText="Data de Nascimento" style="text-align: center" sortBy="#{funcionario.dataNascimento}"
+						  width="100">
+					<h:outputText value="#{funcionario.dataNascimento}">
+						<f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo" />
+					</h:outputText>
+				</p:column>
 				<p:column width="70" style="text-align: center">
-					<p:button icon="ui-icon-pencil" title="Contracheque" outcome="/Contracheque">
+					<p:button icon="ui-icon-info" title="Contracheque" outcome="/Contracheque">
 						<f:param name="id" value="#{funcionario.id}" />
 					</p:button>
 				</p:column>

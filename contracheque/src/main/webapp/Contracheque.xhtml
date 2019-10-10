@@ -8,8 +8,54 @@
                 xmlns:o="http://omnifaces.org/ui">
 
     <f:metadata>
-        <o:viewParam name="id" value="#{contrachequeBean.funcionario}"/>
+        <f:viewParam name="id" value="#{contrachequeBean.id}" converter="javax.faces.Long" />
         <f:viewAction action="#{contrachequeBean.calcular}"/>
     </f:metadata>
+
+    <ui:define name="titulo">Contracheque</ui:define>
+
+    <ui:define name="corpo">
+        <h1>Contracheque</h1>
+
+        <p:button icon="ui-icon-arrowreturnthick-1-w" value="Voltar" outcome="/ListarFuncionarios"/>
+        <br/><br/>
+
+        <p:outputPanel id="contracheque" style="width: 50% !important; text-align: left !important;">
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel style="font-weight:bold" value="Nome" for="nome" />
+                <h:outputText id="nome" value="#{contrachequeBean.contracheque.funcionario.nome}" />
+                <p:outputLabel style="font-weight:bold" value="Sobrenome" for="sobrenome" />
+                <h:outputText id="sobrenome" value="#{contrachequeBean.contracheque.funcionario.sobrenome}" />
+                <p:outputLabel style="font-weight:bold" value="Salário Bruto" for="salario" />
+                <h:outputText id="salario" value="#{contrachequeBean.contracheque.funcionario.salario}" />
+                <p:outputLabel style="font-weight:bold" value="Salário Líquido" for="salarioLiquido" />
+                <h:outputText id="salarioLiquido" value="#{contrachequeBean.contracheque.salarioLiquido}" />
+                <p:outputLabel style="font-weight:bold" value="Salário/Hora" for="salarioHora" />
+                <h:outputText id="salarioHora" value="#{contrachequeBean.contracheque.funcionario.horasPorMes}" />
+            </p:panelGrid>
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel style="font-weight:bold" value="Plano de Saúde" for="plano" />
+                <h:outputText id="plano" value="#{contrachequeBean.contracheque.planoDeSaude.valorDoDesconto}" />
+            </p:panelGrid>
+            <p:panelGrid columns="4" layout="grid">
+                <p:outputLabel style="font-weight:bold" value="INSS" for="inss" />
+                <h:outputText id="inss" value="#{contrachequeBean.contracheque.inss.valorDoDesconto}" />
+                <p:outputLabel style="font-weight:bold" value="Alíquota" for="aliquotaInss" />
+                <h:outputText id="aliquotaInss" value="#{contrachequeBean.contracheque.inss.aliquota}" />
+            </p:panelGrid>
+            <p:panelGrid columns="6" layout="grid">
+                <p:outputLabel style="font-weight:bold" value="IRRF" for="irrf" />
+                <h:outputText id="irrf" value="#{contrachequeBean.contracheque.irrf.valorDoDesconto}" />
+                <p:outputLabel style="font-weight:bold" value="Alíquota" for="aliquotaIrrf" />
+                <h:outputText id="aliquotaIrrf" value="#{contrachequeBean.contracheque.irrf.aliquota}" />
+                <p:outputLabel style="font-weight:bold" value="Parcela Dedutível" for="parcelaDedutivel" />
+                <h:outputText id="parcelaDedutivel" value="#{contrachequeBean.contracheque.irrf.parcelaDedutivel}" />
+            </p:panelGrid>
+            <p:panelGrid columns="2" layout="grid">
+                <p:outputLabel style="font-weight:bold" value="Total de Descontos" for="total" />
+                <h:outputText id="total" value="#{contrachequeBean.contracheque.totalDeDescontos}" />
+            </p:panelGrid>
+        </p:outputPanel>
+    </ui:define>
 
 </ui:composition>

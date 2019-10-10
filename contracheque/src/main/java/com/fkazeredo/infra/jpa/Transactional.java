@@ -1,4 +1,4 @@
-package com.fkazeredo.persistence;
+package com.fkazeredo.infra.jpa;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

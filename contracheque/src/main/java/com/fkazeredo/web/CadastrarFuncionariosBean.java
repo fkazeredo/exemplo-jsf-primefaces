@@ -22,6 +22,10 @@ public class CadastrarFuncionariosBean implements Serializable {
     @Inject
     private Funcionario funcionario;
 
+    /*
+     * TODO
+     * Acho que isso tá meio redundante...
+     */
     public void iniciar() {
         if (funcionario == null)
             funcionario = new Funcionario();

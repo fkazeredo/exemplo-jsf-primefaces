@@ -6,17 +6,18 @@ import com.fkazeredo.model.Funcionarios;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
+import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class FuncionarioRepository implements Funcionarios {
+class FuncionarioRepository implements Funcionarios {
 
     private static final long serialVersionUID = 6298979773474593324L;
 
     private EntityManager entityManager;
 
     @Inject
-    public FuncionarioRepository(EntityManager entityManager) {
+    FuncionarioRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

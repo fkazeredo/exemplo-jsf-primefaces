@@ -17,8 +17,8 @@
 
 		<h1>Cadastro de Funcionário</h1>
 
-		<p:button icon="ui-icon-arrowreturnthick-1-w" value="Voltar" outcome="/ListarFuncionarios">
-		</p:button>
+		<p:button icon="ui-icon-arrowreturnthick-1-w" value="Voltar" outcome="/ListarFuncionarios"/>
+		<br/><br/>
 
 		<h:form id="frm">
 			<p:messages showDetail="false" showSummary="true" autoUpdate="true" />
@@ -36,11 +36,18 @@
 				<p:inputText id="cargo" size="50"
 							 value="#{cadastrarFuncionariosBean.funcionario.cargo}">
 				</p:inputText>
+				<p:outputLabel value="Data de nascimento" for="dataNascimento" />
+				<p:calendar id="dataNascimento" size="12" pattern="dd/MM/yyyy"
+							value="#{cadastrarFuncionariosBean.funcionario.dataNascimento}"
+							showOn="button"
+							readonlyInput="true"
+							navigator="true"
+							yearRange="c-50:c+10"/>
 				<p:outputLabel value="Salário" for="salario" />
-				<p:inputText id="salario" size="12"
-						value="#{cadastrarFuncionariosBean.funcionario.salario}">
-					<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
-				</p:inputText>
+				<p:inputNumber id="salario" value="#{cadastrarFuncionariosBean.funcionario.salario}" symbol=" R$" symbolPosition="s"
+							   decimalSeparator="," thousandSeparator="."/>
+				<p:outputLabel value="Horas por mês" for="horasPorMes" />
+				<p:inputNumber id="horasPorMes" value="#{cadastrarFuncionariosBean.funcionario.horasPorMes}"/>
 				<h:outputLabel />
 				<p:commandButton value="Salvar" action="#{cadastrarFuncionariosBean.salvar}"
 					icon="ui-icon-disk" update="@form" />

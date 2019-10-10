@@ -6,7 +6,7 @@
        version="1.1" bean-discovery-mode="all">
 
     <interceptors>
-        <class>com.fkazeredo.persistence.TransactionInterceptor</class>
+        <class>com.fkazeredo.infra.jpa.TransactionInterceptor</class>
     </interceptors>
 
 </beans>
